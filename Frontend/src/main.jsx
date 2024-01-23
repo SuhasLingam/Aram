@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Home, Upload } from "./pages/index.js";
+import { Home, Upload, Deeds } from "./pages";
+
+// const walletAddress = "02xcz";
 
 const router = createBrowserRouter([
   {
@@ -15,8 +17,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Upload",
+        path: "/upload",
         element: <Upload />,
+      },
+      {
+        path: "/deeds",
+        element: <Deeds />,
       },
     ],
   },

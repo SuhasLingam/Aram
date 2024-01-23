@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosWallet } from "react-icons/io";
 
 function Header() {
@@ -14,6 +14,7 @@ function Header() {
         .then((accounts) => {
           acntChgHandler(accounts[0]);
           setIsWalletConnected(true);
+          localStorage.setItem("isWal", true);
         })
         .catch((err) => {
           console.log(err);
@@ -25,11 +26,21 @@ function Header() {
 
   const acntChgHandler = (account) => {
     setWalletAddress(account);
-
+    localStorage.setItem("walAdd", JSON.stringify(account));
     window.ethereum.request({ method: "net_version" }).then((network) => {
       setNetworkId(network);
+      localStorage.setItem("netId", JSON.stringify(network));
     });
   };
+
+  useEffect(() => {
+    const account = JSON.parse(localStorage.getItem("walAdd"));
+    const network = JSON.parse(localStorage.getItem("netId"));
+    const isWallet = localStorage.getItem("isWal");
+    setNetworkId(network);
+    setWalletAddress(account);
+    setIsWalletConnected(isWallet);
+  }, []);
 
   return (
     <>
@@ -55,7 +66,7 @@ function Header() {
                   href=""
                   className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
                 >
-                  About Us
+                  Deeds
                 </a>
               </li>
               <li className="mx-3">

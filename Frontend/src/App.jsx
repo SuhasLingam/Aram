@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="bg-black h-screen">
+      <div className="bg-black h-[100%]">
         <Header />
         <main>
           <Outlet />

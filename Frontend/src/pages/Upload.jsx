@@ -14,12 +14,17 @@ function Upload() {
           </label>
           <textarea
             id="desc"
-            className="mb-4 py-2 w-[700px] rounded-lg"
+            className="mb-4 py-2 bg-white outline-none w-[700px] rounded-lg"
             required
           />
-          <div>
-            <Input />
-          </div>
+          <label htmlFor="Address" className="m-1">
+            Address:
+          </label>
+          <textarea
+            id="Address"
+            className="mb-4 py-2 bg-white outline-none w-[700px] rounded-lg"
+            required
+          />
           <Input
             label="Video Proof: "
             type="file"
