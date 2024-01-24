@@ -1,14 +1,15 @@
 import React from "react";
 import Input from "../components/Input";
+import { useStorageUpload } from "@thirdweb-dev/react";
 
 function Upload() {
   const handleSubmit = () => {};
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className=" m-8 p-8">
-        <h1 className="text-white text-4xl">Upload Your Proof</h1>
-        <div className="flex flex-col m-6 text-white ">
+      <div className=" p-8 m-8">
+        <h1 className="text-4xl text-white">Upload Your Proof</h1>
+        <div className=" flex flex-col m-6 text-white">
           <label htmlFor="desc" className="m-1">
             Description:
           </label>
