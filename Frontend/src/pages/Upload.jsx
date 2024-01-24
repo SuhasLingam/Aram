@@ -45,7 +45,7 @@ function Upload() {
         if (window.ethereum) {
           try {
             await window.ethereum.request({ method: "eth_requestAccounts" });
-            const provider = new ethers.providers.BrowserProvider(
+            const provider = new Web3Provider(
               window.ethereum
             );
             const signer = provider.getSigner();

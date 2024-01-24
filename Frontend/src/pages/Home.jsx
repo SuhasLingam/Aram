@@ -26,17 +26,6 @@ function Home() {
           <p>Aram is a decentralized social networking platform focused on fostering acts of kindness and collaboration. Users come together to share and address adversities, earning virtual coins for their contributions.</p>
         </div>
 
-        {/* Top Deeds */}
-        <div className="p-8 bg-gray-100">
-          <h2 className="text-3xl font-bold mb-4">Top Deeds</h2>
-          <div className="grid grid-cols-3 gap-4">
-            {/* Replace with your deeds components */}
-            <DeedCard />
-            <DeedCard />
-            <DeedCard />
-          </div>
-        </div>
-
         {/* Footer */}
         <footer className="p-8 bg-black text-white text-center">
           <p>© {new Date().getFullYear()} Aram Project. All rights reserved.</p>
