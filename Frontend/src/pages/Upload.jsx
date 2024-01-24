@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Input from "../components/Input";
 import axios from "axios";
 import { ethers } from "ethers";
+import { Web3Provider } from '@web3-react/core'
 
 function Upload() {
   const fileInputRef = useRef();
@@ -45,10 +46,12 @@ function Upload() {
         if (window.ethereum) {
           try {
             await window.ethereum.request({ method: "eth_requestAccounts" });
-            const provider = new Web3Provider(
-              window.ethereum
-            );
-            const signer = provider.getSigner();
+            // Check if Ethereum provider is injected
+            if (typeof window.ethereum !== 'undefined') {
+              // Create a Web3Provider using the injected Ethereum provider
+              const provider = new ethers.providers.Web3Provider(window.ethereum);
+              // Now you can use provider to interact with Ethereum
+              const signer = provider.getSigner();
             // Replace with your smart contract's address and ABI
             const contractAddress =
               "0x878044D66A3535D6f2f87740A38d79B5c6fd8c14";
@@ -213,6 +216,9 @@ function Upload() {
             await transactionResponse.wait();
 
             window.location.href = "/deeds";
+            } else {
+              console.log("Ethereum provider is not available");
+            }
           } catch (e) {
             console.error(e);
           }

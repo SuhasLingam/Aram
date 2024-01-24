@@ -51,7 +51,7 @@ function Header() {
         <div className="flex justify-center items-center">
           <div className="ml-4 text-center">
             <Link hrtoef="/" className="text-2xl text-[#99ff53]">
-              <img src="src/assets/Logo.png" alt="" width={85} />
+              <img src="../src/assets/Logo.png" alt="" width={85} />
             </Link>
           </div>
           <div className="mx-4 ml-auto mr-8">
@@ -79,7 +79,7 @@ function Header() {
                       to="/upload"
                       className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
                     >
-                      Upload
+                      Uploa
                     </Link>
                     <div className=" w-4 bg-yellow-300 rounded-full"></div>
                   </li>
