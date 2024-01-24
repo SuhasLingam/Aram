@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import Input from "../components/Input";
 import axios from "axios";
 import { ethers } from "ethers";
-import { Web3Provider } from '@web3-react/core'
 
 function Upload() {
   const fileInputRef = useRef();

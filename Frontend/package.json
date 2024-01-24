@@ -11,15 +11,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
-<<<<<<< HEAD
     "axios": "^1.6.5",
-    "ethers": "^6.10.0",
     "ipfs-http-client": "^60.0.1",
-=======
-    "@thirdweb-dev/react": "^4.4.0",
-    "@thirdweb-dev/sdk": "^4.0.28",
     "ethers": "^5.7.2",
->>>>>>> 4571672785b936f4738b2c7cf05cccc74d5ec26f
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
