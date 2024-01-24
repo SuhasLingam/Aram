@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { IoIosWallet } from "react-icons/io";
+import { ethers } from "ethers";
 
 function Header() {
   const [walletAddress, setWalletAddress] = useState(null);
   const [networkId, setNetworkId] = useState(null);
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  // const [isVerifier, setIsVerifier] = useState(false);
 
   const changeMetaMask = () => {
     if (window.ethereum) {
@@ -47,37 +50,49 @@ function Header() {
       <nav className="bg-black text-white">
         <div className="flex justify-center items-center">
           <div className="ml-4 text-center">
-            <a href="/" className="text-2xl text-[#99ff53]">
+            <Link hrtoef="/" className="text-2xl text-[#99ff53]">
               <img src="src/assets/Logo.png" alt="" width={85} />
-            </a>
+            </Link>
           </div>
           <div className="mx-4 ml-auto mr-8">
             <ul className="text-white mx-5 ml-5 flex text-lg font-sans items-center justify-center font-Inter">
               <li className="mx-4 ">
-                <a
-                  href=""
+                <Link
+                  to="/"
                   className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
                 >
                   Home
-                </a>
+                </Link>
               </li>
-              <li className="mx-3">
-                <a
-                  href=""
-                  className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
-                >
-                  Deeds
-                </a>
-              </li>
-              <li className="mx-3">
-                <a
-                  href=""
-                  className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
-                >
-                  Your Rewards
-                </a>
-                <div className=" w-4 bg-yellow-300 rounded-full"></div>
-              </li>
+              {isWalletConnected ? (
+                <div className="flex">
+                  <li className="mx-3">
+                    <Link
+                      to="/Deeds"
+                      className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
+                    >
+                      Deeds
+                    </Link>
+                  </li>
+                  <li className="mx-3">
+                    <Link
+                      to="/upload"
+                      className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
+                    >
+                      Upload
+                    </Link>
+                    <div className=" w-4 bg-yellow-300 rounded-full"></div>
+                  </li>
+                  <li className="mx-3">
+                    <Link
+                      to="/"
+                      className="active:underline active:text-[#99ff53] hover:underline hover:text-[#99ff53] cursor-pointer"
+                    >
+                      Your Sparks
+                    </Link>
+                  </li>
+                </div>
+              ) : null}
 
               {isWalletConnected ? (
                 <div>
